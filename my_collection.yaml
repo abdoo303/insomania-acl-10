@@ -1,0 +1,99 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Main
+meta:
+  id: wrk_35a4e9cb99b843bfbe47979b420646f0
+  created: 1775491206274
+  modified: 1775491561973
+  description: ""
+collection:
+  - url: http://localhost:8080/api/invoices/health
+    name: New Request
+    meta:
+      id: req_95c015a97a66417a9d1027579aa24dd8
+      created: 1775491578528
+      modified: 1775491578528
+      isPrivate: false
+      description: ""
+      sortKey: -1775491578528
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - name: Invoices
+    meta:
+      id: fld_e6d349aabcb94dd9bf47997cb147fbc4
+      created: 1775491277159
+      modified: 1775491290718
+      sortKey: -1775491277159
+      description: ""
+    children:
+      - url: "{{ _['invoices-url'] }}/health"
+        name: health check
+        meta:
+          id: req_0416c70a020f4ff98271d9c4baeed0f9
+          created: 1775491305531
+          modified: 1775496893944
+          isPrivate: false
+          description: ""
+          sortKey: -1775491305531
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: Discount
+        meta:
+          id: fld_7aee25377d344eee876ab69d8713ec2e
+          created: 1775496685669
+          modified: 1775496685669
+          sortKey: -1775496685669
+          description: ""
+      - name: Invoice-Discount
+        meta:
+          id: fld_83d5ed7cddce41a29130978858f06065
+          created: 1775496717454
+          modified: 1775496717454
+          sortKey: -1775496717454
+          description: ""
+  - name: User
+    meta:
+      id: fld_4fd8e4499f7f42fea8c63fe11b20f7b9
+      created: 1775491300979
+      modified: 1775491300979
+      sortKey: -1775491300979
+      description: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_d275c5e6e93e5473065ace409c3318c0fda95853
+    created: 1775491206277
+    modified: 1775491206277
+environments:
+  name: Base Environment
+  meta:
+    id: env_d275c5e6e93e5473065ace409c3318c0fda95853
+    created: 1775491206277
+    modified: 1775496621344
+    isPrivate: false
+  data:
+    invoices-url: http://localhost:8083/api/invoices
