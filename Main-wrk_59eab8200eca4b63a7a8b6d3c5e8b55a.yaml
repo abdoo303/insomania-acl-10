@@ -776,9 +776,172 @@ collection:
     meta:
       id: fld_7e0257f57dbb493dabb93d40b907f0e3
       created: 1775491300979
-      modified: 1775491300979
+      modified: 1775510200000
       sortKey: -1775491300979
       description: ""
+    children:
+      - url: "{{ _['users-url'] }}/health"
+        name: health check
+        meta:
+          id: req_users_health_001
+          created: 1775510200100
+          modified: 1775510200100
+          isPrivate: false
+          description: GET /api/users/health
+          sortKey: -1775510200100
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['users-url'] }}"
+        name: Create User
+        meta:
+          id: req_users_create_001
+          created: 1775510201000
+          modified: 1775510201000
+          isPrivate: false
+          description: POST /api/users
+          sortKey: -1775510201000
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "John Doe",
+              "email": "john.doe@example.com",
+              "phone": "+1234567890",
+              "role": "CUSTOMER"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['users-url'] }}"
+        name: Get All Users
+        meta:
+          id: req_users_getall_001
+          created: 1775510202000
+          modified: 1775510202000
+          isPrivate: false
+          description: GET /api/users
+          sortKey: -1775510202000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['users-url'] }}/1"
+        name: Get User by ID
+        meta:
+          id: req_users_getbyid_001
+          created: 1775510203000
+          modified: 1775510203000
+          isPrivate: false
+          description: GET /api/users/{id}
+          sortKey: -1775510203000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['users-url'] }}/1"
+        name: Update User
+        meta:
+          id: req_users_update_001
+          created: 1775510204000
+          modified: 1775510204000
+          isPrivate: false
+          description: PUT /api/users/{id}
+          sortKey: -1775510204000
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "John Updated",
+              "email": "john.updated@example.com",
+              "phone": "+9876543210",
+              "role": "CUSTOMER"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['users-url'] }}/1"
+        name: Delete User
+        meta:
+          id: req_users_delete_001
+          created: 1775510205000
+          modified: 1775510205000
+          isPrivate: false
+          description: DELETE /api/users/{id}
+          sortKey: -1775510205000
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
@@ -793,6 +956,7 @@ environments:
     modified: 1775500000000
     isPrivate: false
   data:
+    users-url: http://localhost:8081/api/users
     bookings-url: http://localhost:8080/api/bookings
     invoices-url: http://localhost:8083/api/invoices
     discounts-url: http://localhost:8083/api/discounts
