@@ -7,29 +7,11 @@ meta:
   modified: 1775498538959
   description: ""
 collection:
-  - url: http://localhost:8080/api/invoices/health
-    name: New Request
-    meta:
-      id: req_6dec4db5d7824d119dc8b27582e2e35a
-      created: 1775491578528
-      modified: 1775491578528
-      isPrivate: false
-      description: ""
-      sortKey: -1775491578528
-    method: GET
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
   - name: Invoices
     meta:
       id: fld_a8d95cec2fe4420b80be2eb10c965627
       created: 1775491277159
-      modified: 1775500000000
+      modified: 1775650205685
       sortKey: -1775491277159
       description: ""
     children:
@@ -217,7 +199,7 @@ collection:
           created: 1775510001000
           modified: 1775510001000
           isPrivate: false
-          description: "POST /api/invoices/process"
+          description: POST /api/invoices/process
           sortKey: -1775500000900
         method: POST
         body:
@@ -242,14 +224,15 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/reports/revenue?startDate=2026-03-01&endDate=2026-03-31"
+      - url: "{{ _['invoices-url']
+          }}/reports/revenue?startDate=2026-03-01&endDate=2026-03-31"
         name: Revenue Report by Date Range
         meta:
           id: req_revenue_report_001
           created: 1775510002000
           modified: 1775510002000
           isPrivate: false
-          description: "GET /api/invoices/reports/revenue?startDate=&endDate="
+          description: GET /api/invoices/reports/revenue?startDate=&endDate=
           sortKey: -1775500000800
         method: GET
         headers:
@@ -273,7 +256,7 @@ collection:
           created: 1775510003000
           modified: 1775510003000
           isPrivate: false
-          description: "PUT /api/invoices/{id}/retry"
+          description: PUT /api/invoices/{id}/retry
           sortKey: -1775500000700
         method: PUT
         body:
@@ -600,6 +583,13 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+  - name: User
+    meta:
+      id: fld_7e0257f57dbb493dabb93d40b907f0e3
+      created: 1775491300979
+      modified: 1775649785378
+      sortKey: -1775491300979
+      description: ""
   - name: Bookings
     meta:
       id: fld_bookings_main_001
@@ -613,10 +603,10 @@ collection:
         meta:
           id: req_bookings_health_001
           created: 1775510100100
-          modified: 1775510100100
+          modified: 1775649809436
           isPrivate: false
           description: GET /api/bookings/health
-          sortKey: -1775510100100
+          sortKey: -1775510104200
         method: GET
         headers:
           - name: Content-Type
@@ -637,10 +627,10 @@ collection:
         meta:
           id: req_bookings_create_001
           created: 1775510101000
-          modified: 1775510101000
+          modified: 1775650311300
           isPrivate: false
           description: POST /api/bookings
-          sortKey: -1775510101000
+          sortKey: -1775510104100
         method: POST
         body:
           mimeType: application/json
@@ -753,10 +743,10 @@ collection:
         meta:
           id: req_bookings_delete_001
           created: 1775510105000
-          modified: 1775510105000
+          modified: 1775649797764
           isPrivate: false
           description: DELETE /api/bookings/{id}
-          sortKey: -1775510105000
+          sortKey: -1775510100000
         method: DELETE
         headers:
           - name: Content-Type
@@ -772,13 +762,6 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - name: User
-    meta:
-      id: fld_7e0257f57dbb493dabb93d40b907f0e3
-      created: 1775491300979
-      modified: 1775491300979
-      sortKey: -1775491300979
-      description: ""
 cookieJar:
   name: Default Jar
   meta:
