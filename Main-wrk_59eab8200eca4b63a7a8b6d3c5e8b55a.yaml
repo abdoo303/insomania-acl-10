@@ -210,6 +210,92 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/process"
+        name: Process Invoice for Booking
+        meta:
+          id: req_process_invoice_001
+          created: 1775510001000
+          modified: 1775510001000
+          isPrivate: false
+          description: "POST /api/invoices/process"
+          sortKey: -1775500000900
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "bookingId": 1,
+              "userId": 1,
+              "method": "CREDIT_CARD"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/reports/revenue?startDate=2026-03-01&endDate=2026-03-31"
+        name: Revenue Report by Date Range
+        meta:
+          id: req_revenue_report_001
+          created: 1775510002000
+          modified: 1775510002000
+          isPrivate: false
+          description: "GET /api/invoices/reports/revenue?startDate=&endDate="
+          sortKey: -1775500000800
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/retry"
+        name: Retry Failed Invoice
+        meta:
+          id: req_retry_invoice_001
+          created: 1775510003000
+          modified: 1775510003000
+          isPrivate: false
+          description: "PUT /api/invoices/{id}/retry"
+          sortKey: -1775500000700
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "method": "WALLET"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
       - name: Discount
         meta:
           id: fld_a1d31f783fa64074ab38f9e4cb08a7d9
