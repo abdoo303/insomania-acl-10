@@ -2,945 +2,801 @@ type: collection.insomnia.rest/5.0
 schema_version: "5.1"
 name: Main
 meta:
-  id: wrk_59eab8200eca4b63a7a8b6d3c5e8b55a
-  created: 1775498538959
-  modified: 1775498538959
-  description: ""
+    id: wrk_59eab8200eca4b63a7a8b6d3c5e8b55a
+    created: 1775498538959
+    modified: 1775498538959
+    description: ""
 collection:
-  - name: Invoices
-    meta:
-      id: fld_a8d95cec2fe4420b80be2eb10c965627
-      created: 1775491277159
-      modified: 1775650205685
-      sortKey: -1775491277159
-      description: ""
-    children:
-      - url: "{{ _['invoices-url'] }}/health"
-        name: health check
-        meta:
-          id: req_a3d6ee2d2c504f858175f258cb9d9b15
-          created: 1775491305531
-          modified: 1775496893944
+    - url: http://localhost:8080/api/invoices/health
+      name: New Request
+      meta:
+          id: req_6dec4db5d7824d119dc8b27582e2e35a
+          created: 1775491578528
+          modified: 1775491578528
           isPrivate: false
           description: ""
-          sortKey: -1775491305531
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            description: ""
-            disabled: false
-        settings:
+          sortKey: -1775491578528
+      method: GET
+      settings:
           renderRequestBody: true
           encodeUrl: true
           followRedirects: global
           cookies:
-            send: true
-            store: true
+              send: true
+              store: true
           rebuildPath: true
-      - url: "{{ _['invoices-url'] }}"
-        name: Create Invoice
-        meta:
-          id: req_4aa20eed4790402a8bbc15813bba4491
-          created: 1775500001000
-          modified: 1775498576624
-          isPrivate: false
-          description: POST /api/invoices
-          sortKey: -1775500004100
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "bookingId": 1,
-              "userId": 1,
-              "amount": 150.00,
-              "method": "CREDIT_CARD",
-              "status": "PENDING",
-              "transactionDetails": {
-                "cardLast4": "4242",
-                "bank": "Example Bank"
-              },
-              "createdAt": "2026-04-06T10:00:00"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}"
-        name: Get All Invoices
-        meta:
-          id: req_07b7af8d22cb4227aa5fcd7c1f913181
-          created: 1775500002000
-          modified: 1775500002000
-          isPrivate: false
-          description: GET /api/invoices
-          sortKey: -1775500002000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/1"
-        name: Get Invoice by ID
-        meta:
-          id: req_bcbe1bd2fd9e4d32ab7e37ead4c7373e
-          created: 1775500003000
-          modified: 1775500003000
-          isPrivate: false
-          description: GET /api/invoices/{id}
-          sortKey: -1775500003000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/1"
-        name: Update Invoice
-        meta:
-          id: req_80a7f785098a4c5e81c63f3c343556ab
-          created: 1775500004000
-          modified: 1775498627788
-          isPrivate: false
-          description: PUT /api/invoices/{id}
-          sortKey: -1775500004000
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "bookingId": 1,
-              "userId": 1,
-              "amount": 200.00,
-              "method": "WALLET",
-              "status": "COMPLETED",
-              "transactionDetails": {
-                "walletRef": "WLT-9999"
-              },
-              "createdAt": "2026-04-06T10:00:01"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/1"
-        name: Delete Invoice
-        meta:
-          id: req_10573adca52448a4a2844a93d5f84045
-          created: 1775500005000
-          modified: 1775498556049
-          isPrivate: false
-          description: DELETE /api/invoices/{id}
-          sortKey: -1775498359227
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/process"
-        name: Process Invoice for Booking
-        meta:
-          id: req_process_invoice_001
-          created: 1775510001000
-          modified: 1775510001000
-          isPrivate: false
-          description: POST /api/invoices/process
-          sortKey: -1775500000900
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "bookingId": 1,
-              "userId": 1,
-              "method": "CREDIT_CARD"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url']
-          }}/reports/revenue?startDate=2026-03-01&endDate=2026-03-31"
-        name: Revenue Report by Date Range
-        meta:
-          id: req_revenue_report_001
-          created: 1775510002000
-          modified: 1775510002000
-          isPrivate: false
-          description: GET /api/invoices/reports/revenue?startDate=&endDate=
-          sortKey: -1775500000800
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['invoices-url'] }}/1/retry"
-        name: Retry Failed Invoice
-        meta:
-          id: req_retry_invoice_001
-          created: 1775510003000
-          modified: 1775510003000
-          isPrivate: false
-          description: PUT /api/invoices/{id}/retry
-          sortKey: -1775500000700
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "method": "WALLET"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - name: Discount
-        meta:
-          id: fld_a1d31f783fa64074ab38f9e4cb08a7d9
-          created: 1775496685669
+    - name: Invoices
+      meta:
+          id: fld_a8d95cec2fe4420b80be2eb10c965627
+          created: 1775491277159
           modified: 1775500000000
-          sortKey: -1775496685669
+          sortKey: -1775491277159
           description: ""
-        children:
-          - url: "{{ _['discounts-url'] }}"
-            name: Create Discount
+      children:
+          - url: "{{ _['invoices-url'] }}/health"
+            name: health check
             meta:
-              id: req_332c6017e86b4ccf8690c183c09a1c21
-              created: 1775500010000
-              modified: 1775498585126
-              isPrivate: false
-              description: POST /api/discounts
-              sortKey: -1775500014100
+                id: req_a3d6ee2d2c504f858175f258cb9d9b15
+                created: 1775491305531
+                modified: 1775496893944
+                isPrivate: false
+                description: ""
+                sortKey: -1775491305531
+            method: GET
+            body:
+                mimeType: application/json
+                text: ""
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  description: ""
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}"
+            name: Create Invoice
+            meta:
+                id: req_4aa20eed4790402a8bbc15813bba4491
+                created: 1775500001000
+                modified: 1775498576624
+                isPrivate: false
+                description: POST /api/invoices
+                sortKey: -1775500004100
             method: POST
             body:
-              mimeType: application/json
-              text: |-
-                {
-                  "code": "SAVE20",
-                  "discountType": "PERCENTAGE",
-                  "discountValue": 20.0,
-                  "maxUses": 100,
-                  "currentUses": 0,
-                  "expiryDate": "2026-12-31T23:59:59",
-                  "active": true,
-                  "metadata": {
-                    "campaign": "spring-sale"
-                  }
-                }
+                mimeType: application/json
+                text: |-
+                    {
+                      "bookingId": 1,
+                      "userId": 1,
+                      "amount": 150.00,
+                      "method": "CREDIT_CARD",
+                      "status": "PENDING",
+                      "transactionDetails": {
+                        "cardLast4": "4242",
+                        "bank": "Example Bank"
+                      },
+                      "createdAt": "2026-04-06T10:00:00"
+                    }
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['discounts-url'] }}"
-            name: Get All Discounts
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}"
+            name: Get All Invoices
             meta:
-              id: req_649d905c18f24cd9af7bf043cab21740
-              created: 1775500011000
-              modified: 1775500011000
-              isPrivate: false
-              description: GET /api/discounts
-              sortKey: -1775500011000
+                id: req_07b7af8d22cb4227aa5fcd7c1f913181
+                created: 1775500002000
+                modified: 1775500002000
+                isPrivate: false
+                description: GET /api/invoices
+                sortKey: -1775500002000
             method: GET
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['discounts-url'] }}/1"
-            name: Get Discount by ID
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}/1"
+            name: Get Invoice by ID
             meta:
-              id: req_7ad86256cd144b0ba03b7476a7fc2c3c
-              created: 1775500012000
-              modified: 1775500012000
-              isPrivate: false
-              description: GET /api/discounts/{id}
-              sortKey: -1775500012000
+                id: req_bcbe1bd2fd9e4d32ab7e37ead4c7373e
+                created: 1775500003000
+                modified: 1775500003000
+                isPrivate: false
+                description: GET /api/invoices/{id}
+                sortKey: -1775500003000
             method: GET
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['discounts-url'] }}/1"
-            name: Update Discount
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}/1"
+            name: Update Invoice
             meta:
-              id: req_ced889b5e4f049c983d56db903459686
-              created: 1775500013000
-              modified: 1775498583172
-              isPrivate: false
-              description: PUT /api/discounts/{id}
-              sortKey: -1775500013500
+                id: req_80a7f785098a4c5e81c63f3c343556ab
+                created: 1775500004000
+                modified: 1775498627788
+                isPrivate: false
+                description: PUT /api/invoices/{id}
+                sortKey: -1775500004000
             method: PUT
             body:
-              mimeType: application/json
-              text: |-
-                {
-                  "code": "SAVE30",
-                  "discountType": "FIXED",
-                  "discountValue": 30.0,
-                  "maxUses": 50,
-                  "currentUses": 5,
-                  "expiryDate": "2026-12-31T23:59:59",
-                  "active": true,
-                  "metadata": {
-                    "campaign": "summer-sale"
-                  }
-                }
+                mimeType: application/json
+                text: |-
+                    {
+                      "bookingId": 1,
+                      "userId": 1,
+                      "amount": 200.00,
+                      "method": "WALLET",
+                      "status": "COMPLETED",
+                      "transactionDetails": {
+                        "walletRef": "WLT-9999"
+                      },
+                      "createdAt": "2026-04-06T10:00:01"
+                    }
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['discounts-url'] }}/1"
-            name: Delete Discount
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}/1"
+            name: Delete Invoice
             meta:
-              id: req_feb2d389cd564582b95c386f320306b5
-              created: 1775500014000
-              modified: 1775498587295
-              isPrivate: false
-              description: DELETE /api/discounts/{id}
-              sortKey: -1775500010900
+                id: req_10573adca52448a4a2844a93d5f84045
+                created: 1775500005000
+                modified: 1775498556049
+                isPrivate: false
+                description: DELETE /api/invoices/{id}
+                sortKey: -1775498359227
             method: DELETE
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-      - name: Invoice-Discount
-        meta:
-          id: fld_74d93355189d42179d1827ace52fdb2f
-          created: 1775496717454
-          modified: 1775500000000
-          sortKey: -1775496717454
-          description: ""
-        children:
-          - url: "{{ _['invoice-discounts-url'] }}"
-            name: Create Invoice Discount
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}/process"
+            name: Process Invoice for Booking
             meta:
-              id: req_cb396831239b4e7b8c3c8cdf353d56f0
-              created: 1775500020000
-              modified: 1775498567087
-              isPrivate: false
-              description: POST /api/invoice-discounts
-              sortKey: -1775500023100
+                id: req_process_invoice_001
+                created: 1775510001000
+                modified: 1775510001000
+                isPrivate: false
+                description: "POST /api/invoices/process"
+                sortKey: -1775500000900
             method: POST
             body:
-              mimeType: application/json
-              text: |-
-                {
-                  "discountApplied": 30.0,
-                  "appliedAt": "2026-04-06T10:00:00",
-                  "invoice": { "id": 1 },
-                  "discount": { "id": 1 }
-                }
+                mimeType: application/json
+                text: |-
+                    {
+                      "bookingId": 1,
+                      "userId": 1,
+                      "method": "CREDIT_CARD"
+                    }
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['invoice-discounts-url'] }}"
-            name: Get All Invoice Discounts
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url']
+
+                }}/reports/revenue?startDate=2026-03-01&endDate=2026-03-31"
+            name: Revenue Report by Date Range
             meta:
-              id: req_69dc0297ee264b1180d4bcf6c95d282b
-              created: 1775500021000
-              modified: 1775500021000
-              isPrivate: false
-              description: GET /api/invoice-discounts
-              sortKey: -1775500021000
+                id: req_revenue_report_001
+                created: 1775510002000
+                modified: 1775510002000
+                isPrivate: false
+                description: "GET /api/invoices/reports/revenue?startDate=&endDate="
+                sortKey: -1775500000800
             method: GET
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['invoice-discounts-url'] }}/1"
-            name: Get Invoice Discount by ID
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['invoices-url'] }}/1/retry"
+            name: Retry Failed Invoice
             meta:
-              id: req_78177170a5fa4c558f9c6da73af19dbf
-              created: 1775500022000
-              modified: 1775502583621
-              isPrivate: false
-              description: GET /api/invoice-discounts/{id}
-              sortKey: -1775500022000
-            method: GET
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['invoice-discounts-url'] }}/2"
-            name: Update Invoice Discount
-            meta:
-              id: req_c49ad4e3460a4e78bfe4dddaf3123335
-              created: 1775500023000
-              modified: 1775498763968
-              isPrivate: false
-              description: PUT /api/invoice-discounts/{id}
-              sortKey: -1775500023000
+                id: req_retry_invoice_001
+                created: 1775510003000
+                modified: 1775510003000
+                isPrivate: false
+                description: PUT /api/invoices/{id}/retry
+                sortKey: -1775500000700
             method: PUT
             body:
-              mimeType: application/json
-              text: |-
-                {
-                  "discountApplied": 50.0,
-                  "appliedAt": "2026-04-06T12:00:00",
-                  "invoice": { "id": 1 },
-                  "discount": { "id": 1 }
-                }
+                mimeType: application/json
+                text: |-
+                    {
+                      "method": "WALLET"
+                    }
             headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
             settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: "{{ _['invoice-discounts-url'] }}/1"
-            name: Delete Invoice Discount
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - name: Discount
             meta:
-              id: req_37bb4a71834e496f8a4f84dab634e599
-              created: 1775500024000
-              modified: 1775498560299
-              isPrivate: false
-              description: DELETE /api/invoice-discounts/{id}
-              sortKey: -1775500019900
-            method: DELETE
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/12.1.0
-                disabled: false
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-  - name: Bookings
-    meta:
-      id: fld_bookings_main_001
-      created: 1775510100000
-      modified: 1775510100000
-      sortKey: -1775510100000
-      description: ""
-    children:
-      - url: "{{ _['bookings-url'] }}/health"
-        name: health check
-        meta:
-          id: req_bookings_health_001
-          created: 1775510100100
-          modified: 1775649809436
-          isPrivate: false
-          description: GET /api/bookings/health
-          sortKey: -1775510104200
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['bookings-url'] }}"
-        name: Create Booking
-        meta:
-          id: req_bookings_create_001
-          created: 1775510101000
-          modified: 1775650311300
-          isPrivate: false
-          description: POST /api/bookings
-          sortKey: -1775510104100
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "userId": 1,
-              "providerId": 1,
-              "serviceId": 1,
-              "status": "COMPLETED",
-              "totalPrice": 150.00
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['bookings-url'] }}"
-        name: Get All Bookings
-        meta:
-          id: req_bookings_getall_001
-          created: 1775510102000
-          modified: 1775510102000
-          isPrivate: false
-          description: GET /api/bookings
-          sortKey: -1775510102000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['bookings-url'] }}/1"
-        name: Get Booking by ID
-        meta:
-          id: req_bookings_getbyid_001
-          created: 1775510103000
-          modified: 1775510103000
-          isPrivate: false
-          description: GET /api/bookings/{id}
-          sortKey: -1775510103000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['bookings-url'] }}/1"
-        name: Update Booking
-        meta:
-          id: req_bookings_update_001
-          created: 1775510104000
-          modified: 1775510104000
-          isPrivate: false
-          description: PUT /api/bookings/{id}
-          sortKey: -1775510104000
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "userId": 1,
-              "providerId": 1,
-              "serviceId": 1,
-              "status": "COMPLETED",
-              "totalPrice": 200.00
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['bookings-url'] }}/1"
-        name: Delete Booking
-        meta:
-          id: req_bookings_delete_001
-          created: 1775510105000
-          modified: 1775649797764
-          isPrivate: false
-          description: DELETE /api/bookings/{id}
+                id: fld_a1d31f783fa64074ab38f9e4cb08a7d9
+                created: 1775496685669
+                modified: 1775500000000
+                sortKey: -1775496685669
+                description: ""
+            children:
+                - url: "{{ _['discounts-url'] }}"
+                  name: Create Discount
+                  meta:
+                      id: req_332c6017e86b4ccf8690c183c09a1c21
+                      created: 1775500010000
+                      modified: 1775498585126
+                      isPrivate: false
+                      description: POST /api/discounts
+                      sortKey: -1775500014100
+                  method: POST
+                  body:
+                      mimeType: application/json
+                      text: |-
+                          {
+                            "code": "SAVE20",
+                            "discountType": "PERCENTAGE",
+                            "discountValue": 20.0,
+                            "maxUses": 100,
+                            "currentUses": 0,
+                            "expiryDate": "2026-12-31T23:59:59",
+                            "active": true,
+                            "metadata": {
+                              "campaign": "spring-sale"
+                            }
+                          }
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['discounts-url'] }}"
+                  name: Get All Discounts
+                  meta:
+                      id: req_649d905c18f24cd9af7bf043cab21740
+                      created: 1775500011000
+                      modified: 1775500011000
+                      isPrivate: false
+                      description: GET /api/discounts
+                      sortKey: -1775500011000
+                  method: GET
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['discounts-url'] }}/1"
+                  name: Get Discount by ID
+                  meta:
+                      id: req_7ad86256cd144b0ba03b7476a7fc2c3c
+                      created: 1775500012000
+                      modified: 1775500012000
+                      isPrivate: false
+                      description: GET /api/discounts/{id}
+                      sortKey: -1775500012000
+                  method: GET
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['discounts-url'] }}/1"
+                  name: Update Discount
+                  meta:
+                      id: req_ced889b5e4f049c983d56db903459686
+                      created: 1775500013000
+                      modified: 1775498583172
+                      isPrivate: false
+                      description: PUT /api/discounts/{id}
+                      sortKey: -1775500013500
+                  method: PUT
+                  body:
+                      mimeType: application/json
+                      text: |-
+                          {
+                            "code": "SAVE30",
+                            "discountType": "FIXED",
+                            "discountValue": 30.0,
+                            "maxUses": 50,
+                            "currentUses": 5,
+                            "expiryDate": "2026-12-31T23:59:59",
+                            "active": true,
+                            "metadata": {
+                              "campaign": "summer-sale"
+                            }
+                          }
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['discounts-url'] }}/1"
+                  name: Delete Discount
+                  meta:
+                      id: req_feb2d389cd564582b95c386f320306b5
+                      created: 1775500014000
+                      modified: 1775498587295
+                      isPrivate: false
+                      description: DELETE /api/discounts/{id}
+                      sortKey: -1775500010900
+                  method: DELETE
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+          - name: Invoice-Discount
+            meta:
+                id: fld_74d93355189d42179d1827ace52fdb2f
+                created: 1775496717454
+                modified: 1775500000000
+                sortKey: -1775496717454
+                description: ""
+            children:
+                - url: "{{ _['invoice-discounts-url'] }}"
+                  name: Create Invoice Discount
+                  meta:
+                      id: req_cb396831239b4e7b8c3c8cdf353d56f0
+                      created: 1775500020000
+                      modified: 1775498567087
+                      isPrivate: false
+                      description: POST /api/invoice-discounts
+                      sortKey: -1775500023100
+                  method: POST
+                  body:
+                      mimeType: application/json
+                      text: |-
+                          {
+                            "discountApplied": 30.0,
+                            "appliedAt": "2026-04-06T10:00:00",
+                            "invoice": { "id": 1 },
+                            "discount": { "id": 1 }
+                          }
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['invoice-discounts-url'] }}"
+                  name: Get All Invoice Discounts
+                  meta:
+                      id: req_69dc0297ee264b1180d4bcf6c95d282b
+                      created: 1775500021000
+                      modified: 1775500021000
+                      isPrivate: false
+                      description: GET /api/invoice-discounts
+                      sortKey: -1775500021000
+                  method: GET
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['invoice-discounts-url'] }}/1"
+                  name: Get Invoice Discount by ID
+                  meta:
+                      id: req_78177170a5fa4c558f9c6da73af19dbf
+                      created: 1775500022000
+                      modified: 1775502583621
+                      isPrivate: false
+                      description: GET /api/invoice-discounts/{id}
+                      sortKey: -1775500022000
+                  method: GET
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['invoice-discounts-url'] }}/2"
+                  name: Update Invoice Discount
+                  meta:
+                      id: req_c49ad4e3460a4e78bfe4dddaf3123335
+                      created: 1775500023000
+                      modified: 1775498763968
+                      isPrivate: false
+                      description: PUT /api/invoice-discounts/{id}
+                      sortKey: -1775500023000
+                  method: PUT
+                  body:
+                      mimeType: application/json
+                      text: |-
+                          {
+                            "discountApplied": 50.0,
+                            "appliedAt": "2026-04-06T12:00:00",
+                            "invoice": { "id": 1 },
+                            "discount": { "id": 1 }
+                          }
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+                - url: "{{ _['invoice-discounts-url'] }}/1"
+                  name: Delete Invoice Discount
+                  meta:
+                      id: req_37bb4a71834e496f8a4f84dab634e599
+                      created: 1775500024000
+                      modified: 1775498560299
+                      isPrivate: false
+                      description: DELETE /api/invoice-discounts/{id}
+                      sortKey: -1775500019900
+                  method: DELETE
+                  headers:
+                      - name: Content-Type
+                        value: application/json
+                      - name: User-Agent
+                        value: insomnia/12.1.0
+                        disabled: false
+                  settings:
+                      renderRequestBody: true
+                      encodeUrl: true
+                      followRedirects: global
+                      cookies:
+                          send: true
+                          store: true
+                      rebuildPath: true
+    - name: Bookings
+      meta:
+          id: fld_bookings_main_001
+          created: 1775510100000
+          modified: 1775510100000
           sortKey: -1775510100000
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: User
-    meta:
-      id: fld_7e0257f57dbb493dabb93d40b907f0e3
-      created: 1775491300979
-      modified: 1775510200000
-      sortKey: -1775491300979
-      description: ""
-    children:
-      - url: "{{ _['users-url'] }}/health"
-        name: health check
-        meta:
-          id: req_users_health_001
-          created: 1775510200100
-          modified: 1775510200100
-          isPrivate: false
-          description: GET /api/users/health
-          sortKey: -1775510200100
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['users-url'] }}"
-        name: Create User
-        meta:
-          id: req_users_create_001
-          created: 1775510201000
-          modified: 1775510201000
-          isPrivate: false
-          description: POST /api/users
-          sortKey: -1775510201000
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "name": "John Doe",
-              "email": "john.doe@example.com",
-              "phone": "+1234567890",
-              "role": "CUSTOMER"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['users-url'] }}"
-        name: Get All Users
-        meta:
-          id: req_users_getall_001
-          created: 1775510202000
-          modified: 1775510202000
-          isPrivate: false
-          description: GET /api/users
-          sortKey: -1775510202000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['users-url'] }}/1"
-        name: Get User by ID
-        meta:
-          id: req_users_getbyid_001
-          created: 1775510203000
-          modified: 1775510203000
-          isPrivate: false
-          description: GET /api/users/{id}
-          sortKey: -1775510203000
-        method: GET
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['users-url'] }}/1"
-        name: Update User
-        meta:
-          id: req_users_update_001
-          created: 1775510204000
-          modified: 1775510204000
-          isPrivate: false
-          description: PUT /api/users/{id}
-          sortKey: -1775510204000
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "name": "John Updated",
-              "email": "john.updated@example.com",
-              "phone": "+9876543210",
-              "role": "CUSTOMER"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _['users-url'] }}/1"
-        name: Delete User
-        meta:
-          id: req_users_delete_001
-          created: 1775510205000
-          modified: 1775510205000
-          isPrivate: false
-          description: DELETE /api/users/{id}
-          sortKey: -1775510205000
-        method: DELETE
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.1.0
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
+          description: ""
+      children:
+          - url: "{{ _['bookings-url'] }}/health"
+            name: health check
+            meta:
+                id: req_bookings_health_001
+                created: 1775510100100
+                modified: 1775649809436
+                isPrivate: false
+                description: GET /api/bookings/health
+                sortKey: -1775510104200
+            method: GET
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['bookings-url'] }}"
+            name: Create Booking
+            meta:
+                id: req_bookings_create_001
+                created: 1775510101000
+                modified: 1775650311300
+                isPrivate: false
+                description: POST /api/bookings
+                sortKey: -1775510104100
+            method: POST
+            body:
+                mimeType: application/json
+                text: |-
+                    {
+                      "userId": 1,
+                      "providerId": 1,
+                      "serviceId": 1,
+                      "status": "COMPLETED",
+                      "totalPrice": 150.00
+                    }
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['bookings-url'] }}"
+            name: Get All Bookings
+            meta:
+                id: req_bookings_getall_001
+                created: 1775510102000
+                modified: 1775510102000
+                isPrivate: false
+                description: GET /api/bookings
+                sortKey: -1775510102000
+            method: GET
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['bookings-url'] }}/1"
+            name: Get Booking by ID
+            meta:
+                id: req_bookings_getbyid_001
+                created: 1775510103000
+                modified: 1775510103000
+                isPrivate: false
+                description: GET /api/bookings/{id}
+                sortKey: -1775510103000
+            method: GET
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['bookings-url'] }}/1"
+            name: Update Booking
+            meta:
+                id: req_bookings_update_001
+                created: 1775510104000
+                modified: 1775510104000
+                isPrivate: false
+                description: PUT /api/bookings/{id}
+                sortKey: -1775510104000
+            method: PUT
+            body:
+                mimeType: application/json
+                text: |-
+                    {
+                      "userId": 1,
+                      "providerId": 1,
+                      "serviceId": 1,
+                      "status": "COMPLETED",
+                      "totalPrice": 200.00
+                    }
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+          - url: "{{ _['bookings-url'] }}/1"
+            name: Delete Booking
+            meta:
+                id: req_bookings_delete_001
+                created: 1775510105000
+                modified: 1775510105000
+                isPrivate: false
+                description: DELETE /api/bookings/{id}
+                sortKey: -1775510105000
+            method: DELETE
+            headers:
+                - name: Content-Type
+                  value: application/json
+                - name: User-Agent
+                  value: insomnia/12.1.0
+                  disabled: false
+            settings:
+                renderRequestBody: true
+                encodeUrl: true
+                followRedirects: global
+                cookies:
+                    send: true
+                    store: true
+                rebuildPath: true
+    - name: User
+      meta:
+          id: fld_7e0257f57dbb493dabb93d40b907f0e3
+          created: 1775491300979
+          modified: 1775491300979
+          sortKey: -1775491300979
+          description: ""
 cookieJar:
-  name: Default Jar
-  meta:
-    id: jar_a6560fd1765247bdacc979d70dd52811
-    created: 1775491206277
-    modified: 1775491206277
+    name: Default Jar
+    meta:
+        id: jar_a6560fd1765247bdacc979d70dd52811
+        created: 1775491206277
+        modified: 1775491206277
 environments:
-  name: Base Environment
-  meta:
-    id: env_5236ae834e3246829e7071dc700694a5
-    created: 1775491206277
-    modified: 1775500000000
-    isPrivate: false
-  data:
-    users-url: http://localhost:8081/api/users
-    bookings-url: http://localhost:8080/api/bookings
-    invoices-url: http://localhost:8083/api/invoices
-    discounts-url: http://localhost:8083/api/discounts
-    invoice-discounts-url: http://localhost:8083/api/invoice-discounts
+    name: Base Environment
+    meta:
+        id: env_5236ae834e3246829e7071dc700694a5
+        created: 1775491206277
+        modified: 1775500000000
+        isPrivate: false
+    data:
+        users-url: http://localhost:8081/api/users
+        bookings-url: http://localhost:8080/api/bookings
+        invoices-url: http://localhost:8083/api/invoices
+        discounts-url: http://localhost:8083/api/discounts
+        invoice-discounts-url: http://localhost:8083/api/invoice-discounts
