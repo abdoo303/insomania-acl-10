@@ -600,6 +600,178 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+  - name: Bookings
+    meta:
+      id: fld_bookings_main_001
+      created: 1775510100000
+      modified: 1775510100000
+      sortKey: -1775510100000
+      description: ""
+    children:
+      - url: "{{ _['bookings-url'] }}/health"
+        name: health check
+        meta:
+          id: req_bookings_health_001
+          created: 1775510100100
+          modified: 1775510100100
+          isPrivate: false
+          description: GET /api/bookings/health
+          sortKey: -1775510100100
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}"
+        name: Create Booking
+        meta:
+          id: req_bookings_create_001
+          created: 1775510101000
+          modified: 1775510101000
+          isPrivate: false
+          description: POST /api/bookings
+          sortKey: -1775510101000
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "userId": 1,
+              "providerId": 1,
+              "serviceId": 1,
+              "status": "COMPLETED",
+              "totalPrice": 150.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}"
+        name: Get All Bookings
+        meta:
+          id: req_bookings_getall_001
+          created: 1775510102000
+          modified: 1775510102000
+          isPrivate: false
+          description: GET /api/bookings
+          sortKey: -1775510102000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}/1"
+        name: Get Booking by ID
+        meta:
+          id: req_bookings_getbyid_001
+          created: 1775510103000
+          modified: 1775510103000
+          isPrivate: false
+          description: GET /api/bookings/{id}
+          sortKey: -1775510103000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}/1"
+        name: Update Booking
+        meta:
+          id: req_bookings_update_001
+          created: 1775510104000
+          modified: 1775510104000
+          isPrivate: false
+          description: PUT /api/bookings/{id}
+          sortKey: -1775510104000
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "userId": 1,
+              "providerId": 1,
+              "serviceId": 1,
+              "status": "COMPLETED",
+              "totalPrice": 200.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}/1"
+        name: Delete Booking
+        meta:
+          id: req_bookings_delete_001
+          created: 1775510105000
+          modified: 1775510105000
+          isPrivate: false
+          description: DELETE /api/bookings/{id}
+          sortKey: -1775510105000
+        method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - name: User
     meta:
       id: fld_7e0257f57dbb493dabb93d40b907f0e3
@@ -621,6 +793,7 @@ environments:
     modified: 1775500000000
     isPrivate: false
   data:
+    bookings-url: http://localhost:8080/api/bookings
     invoices-url: http://localhost:8083/api/invoices
     discounts-url: http://localhost:8083/api/discounts
     invoice-discounts-url: http://localhost:8083/api/invoice-discounts
