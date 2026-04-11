@@ -217,7 +217,7 @@ collection:
           created: 1775510001000
           modified: 1775510001000
           isPrivate: false
-          description: POST /api/invoices/process
+          description: POST /api/invoices/process — S5-F4
           sortKey: -1775500000900
         method: POST
         body:
@@ -251,7 +251,7 @@ collection:
           created: 1775510002000
           modified: 1775510002000
           isPrivate: false
-          description: GET /api/invoices/reports/revenue?startDate=&endDate=
+          description: GET /api/invoices/reports/revenue?startDate=&endDate= — S5-F6
           sortKey: -1775500000800
         method: GET
         headers:
@@ -275,7 +275,7 @@ collection:
           created: 1775510003000
           modified: 1775510003000
           isPrivate: false
-          description: PUT /api/invoices/{id}/retry
+          description: PUT /api/invoices/{id}/retry — S5-F7
           sortKey: -1775500000700
         method: PUT
         body:
@@ -284,6 +284,156 @@ collection:
             {
               "method": "WALLET"
             }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/search?status=COMPLETED&startDate=2026-01-01T00:00:00&endDate=2026-04-30T23:59:59"
+        name: Search Invoices
+        meta:
+          id: req_search_invoices_001
+          created: 1775520001000
+          modified: 1775520001000
+          isPrivate: false
+          description: GET /api/invoices/search?status=&startDate=&endDate= — S5-F1
+          sortKey: -1775500000600
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/refund"
+        name: Process Refund
+        meta:
+          id: req_process_refund_001
+          created: 1775520002000
+          modified: 1775520002000
+          isPrivate: false
+          description: POST /api/invoices/{id}/refund — S5-F2
+          sortKey: -1775500000500
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "reason": "Customer requested cancellation"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/user/1/summary"
+        name: Get User Invoice Summary
+        meta:
+          id: req_user_invoice_summary_001
+          created: 1775520003000
+          modified: 1775520003000
+          isPrivate: false
+          description: GET /api/invoices/user/{userId}/summary — S5-F3
+          sortKey: -1775500000400
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/discounts/1"
+        name: Apply Discount to Invoice
+        meta:
+          id: req_apply_discount_001
+          created: 1775520004000
+          modified: 1775520004000
+          isPrivate: false
+          description: PUT /api/invoices/{invoiceId}/discounts/{discountId} — S5-F5
+          sortKey: -1775500000300
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/details"
+        name: Get Invoice Details
+        meta:
+          id: req_invoice_details_001
+          created: 1775520005000
+          modified: 1775520005000
+          isPrivate: false
+          description: GET /api/invoices/{invoiceId}/details — S5-F8
+          sortKey: -1775500000200
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/discounts/top-used?limit=5"
+        name: Top Used Discounts
+        meta:
+          id: req_top_used_discounts_001
+          created: 1775520006000
+          modified: 1775520006000
+          isPrivate: false
+          description: GET /api/invoices/discounts/top-used?limit= — S5-F9
+          sortKey: -1775500000100
+        method: GET
         headers:
           - name: Content-Type
             value: application/json
@@ -767,6 +917,409 @@ collection:
           description: DELETE /api/bookings/{id}
           sortKey: -1775510105000
         method: DELETE
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: "Invoice Service \u2014 Walkthrough"
+    meta:
+      id: fld_invoice_walkthrough_001
+      created: 1775530000000
+      modified: 1775530000000
+      sortKey: -1775530000000
+      description: "Complete end-to-end test of all S5 invoice features (F1\u2013F9). Run requests in order."
+    children:
+      - url: "{{ _['invoices-url'] }}/health"
+        name: "Step 0 \u2014 Health Check"
+        meta:
+          id: req_wlk_00_health
+          created: 1775530000100
+          modified: 1775530000100
+          isPrivate: false
+          description: Verify the invoice-service is running before starting the walkthrough.
+          sortKey: -1775530009900
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['bookings-url'] }}"
+        name: "Step 1 \u2014 Create a COMPLETED Booking (prerequisite)"
+        meta:
+          id: req_wlk_01_create_booking
+          created: 1775530001000
+          modified: 1775530001000
+          isPrivate: false
+          description: "Create a booking with status COMPLETED so invoice-service can process it. Note the returned id."
+          sortKey: -1775530009800
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "userId": 1,
+              "providerId": 1,
+              "serviceId": 1,
+              "status": "COMPLETED",
+              "totalPrice": 200.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['discounts-url'] }}"
+        name: "Step 2 \u2014 Create a Discount (prerequisite)"
+        meta:
+          id: req_wlk_02_create_discount
+          created: 1775530002000
+          modified: 1775530002000
+          isPrivate: false
+          description: "Create a PERCENTAGE discount (20%). Note the returned id for use in Step 6."
+          sortKey: -1775530009700
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "WALK20",
+              "discountType": "PERCENTAGE",
+              "discountValue": 20.0,
+              "maxUses": 50,
+              "currentUses": 0,
+              "expiryDate": "2027-12-31T23:59:59",
+              "active": true,
+              "metadata": {
+                "campaign": "walkthrough-test"
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/process"
+        name: "Step 3 \u2014 S5-F4: Process Invoice for Booking"
+        meta:
+          id: req_wlk_03_process_invoice
+          created: 1775530003000
+          modified: 1775530003000
+          isPrivate: false
+          description: "Creates a COMPLETED invoice from the booking created in Step 1. Update bookingId and userId to match. Note the returned invoice id."
+          sortKey: -1775530009600
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "bookingId": 1,
+              "userId": 1,
+              "method": "CREDIT_CARD"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/details"
+        name: "Step 4 \u2014 S5-F8: Get Invoice Details (before discount)"
+        meta:
+          id: req_wlk_04_invoice_details_before
+          created: 1775530004000
+          modified: 1775530004000
+          isPrivate: false
+          description: "View full invoice details with applied discounts (empty at this point). Replace {1} with the invoice id from Step 3."
+          sortKey: -1775530009500
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/discounts/1"
+        name: "Step 5 \u2014 S5-F5: Apply Discount to Invoice"
+        meta:
+          id: req_wlk_05_apply_discount
+          created: 1775530005000
+          modified: 1775530005000
+          isPrivate: false
+          description: "Applies the discount from Step 2 to the invoice from Step 3. Update path: /invoices/{invoiceId}/discounts/{discountId}. NOTE: invoice must NOT be COMPLETED \u2014 update invoice status to PENDING first if needed."
+          sortKey: -1775530009400
+        method: PUT
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/details"
+        name: "Step 6 \u2014 S5-F8: Get Invoice Details (after discount)"
+        meta:
+          id: req_wlk_06_invoice_details_after
+          created: 1775530006000
+          modified: 1775530006000
+          isPrivate: false
+          description: "View the invoice again to confirm the discount is applied and finalAmount is reduced."
+          sortKey: -1775530009300
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/user/1/summary"
+        name: "Step 7 \u2014 S5-F3: Get User Invoice Summary"
+        meta:
+          id: req_wlk_07_user_summary
+          created: 1775530007000
+          modified: 1775530007000
+          isPrivate: false
+          description: "Returns total invoices count, total amount, and method breakdown for userId=1."
+          sortKey: -1775530009200
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/search?status=COMPLETED&startDate=2026-01-01T00:00:00&endDate=2026-12-31T23:59:59"
+        name: "Step 8 \u2014 S5-F1: Search Invoices by Status & Date"
+        meta:
+          id: req_wlk_08_search
+          created: 1775530008000
+          modified: 1775530008000
+          isPrivate: false
+          description: "Filter invoices by status and date range. All params are optional."
+          sortKey: -1775530009100
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/discounts/top-used?limit=5"
+        name: "Step 9 \u2014 S5-F9: Top Used Discounts Report"
+        meta:
+          id: req_wlk_09_top_discounts
+          created: 1775530009000
+          modified: 1775530009000
+          isPrivate: false
+          description: "Returns the top N most-used discounts with usage stats. Default limit=10, max=100."
+          sortKey: -1775530009000
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/reports/revenue?startDate=2026-01-01&endDate=2026-12-31"
+        name: "Step 10 \u2014 S5-F6: Revenue Report by Date Range"
+        meta:
+          id: req_wlk_10_revenue
+          created: 1775530010000
+          modified: 1775530010000
+          isPrivate: false
+          description: "Aggregate revenue stats for the given date range: total, completed count, refunded amount, average, and net revenue."
+          sortKey: -1775530008900
+        method: GET
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/1/refund"
+        name: "Step 11 \u2014 S5-F2: Process Refund"
+        meta:
+          id: req_wlk_11_refund
+          created: 1775530011000
+          modified: 1775530011000
+          isPrivate: false
+          description: "Refund the COMPLETED invoice from Step 3. Invoice status must be COMPLETED. Replace {1} with the invoice id."
+          sortKey: -1775530008800
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "reason": "Customer changed their mind during walkthrough test"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}"
+        name: "Step 12a \u2014 S5-F7: Create a FAILED Invoice (setup for retry)"
+        meta:
+          id: req_wlk_12a_create_failed
+          created: 1775530012000
+          modified: 1775530012000
+          isPrivate: false
+          description: "Manually create an invoice with FAILED status so we can test the retry feature. Use a different bookingId (e.g. 99). Note the returned id."
+          sortKey: -1775530008700
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "bookingId": 99,
+              "userId": 1,
+              "amount": 75.00,
+              "method": "CASH",
+              "status": "FAILED",
+              "transactionDetails": {
+                "failureReason": "Payment gateway timeout"
+              },
+              "createdAt": "2026-04-10T09:00:00"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _['invoices-url'] }}/2/retry"
+        name: "Step 12b \u2014 S5-F7: Retry Failed Invoice"
+        meta:
+          id: req_wlk_12b_retry
+          created: 1775530013000
+          modified: 1775530013000
+          isPrivate: false
+          description: "Retry the FAILED invoice from Step 12a with an optional new payment method. Replace {2} with the failed invoice id."
+          sortKey: -1775530008600
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "method": "WALLET"
+            }
         headers:
           - name: Content-Type
             value: application/json
